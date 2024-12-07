@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aslan AI - Mental Health Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Aslan AI" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span>
+                </li>
+                <li>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </li>
+                <li>
+                    <i class="fas fa-book"></i>
+                    <span>Journal</span>
+                </li>
+                <li>
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="emergency-button">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Emergency Support</span>
+                    <div class="emergency-pulse"></div>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+                
+                <div class="message-controls">
+                    <div class="mood-tracker">
+                        <h3>How are you feeling?</h3>
+                        <div class="mood-buttons">
+                            <button class="mood-btn" data-mood="great">
+                                <i class="far fa-laugh"></i>
+                                <span>Great</span>
+                            </button>
+                            <button class="mood-btn" data-mood="good">
+                                <i class="far fa-smile"></i>
+                                <span>Good</span>
+                            </button>
+                            <button class="mood-btn" data-mood="okay">
+                                <i class="far fa-meh"></i>
+                                <span>Okay</span>
+                            </button>
+                            <button class="mood-btn" data-mood="bad">
+                                <i class="far fa-frown"></i>
+                                <span>Bad</span>
+                            </button>
+                            <button class="mood-btn" data-mood="terrible">
+                                <i class="far fa-sad-tear"></i>
+                                <span>Terrible</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-container">
+                        <div class="input-wrapper">
+                            <textarea id="messageInput" placeholder="Type your message here..." rows="1"></textarea>
+                            <div class="input-actions">
+                                <button class="action-btn" title="Add attachment">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <button class="action-btn" title="Record voice">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                                <button class="action-btn" title="Add emoji">
+                                    <i class="far fa-smile"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="send-button" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Support Tools Panel -->
+        <aside class="support-tools">
+            <div class="tools-header">
+                <h3>Support Tools</h3>
+                <button class="close-tools">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="tools-content">
+                <button class="tool-btn">
+                    <i class="fas fa-lungs"></i>
+                    <span>Breathing Exercise</span>
+                </button>
+                <button class="tool-btn">
+                    <i class="fas fa-brain"></i>
+                    <span>Mindfulness</span>
+                </button>
+                <button class="tool-btn">
+                    <i class="fas fa-book-open"></i>
+                    <span>Coping Strategies</span>
+                </button>
+                <button class="tool-btn">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Crisis Resources</span>
+                </button>
+                <button class="tool-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Daily Goals</span>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal breathing-modal">
+        <div class="modal-content">
+            <h2>Breathing Exercise</h2>
+            <div class="breathing-circle"></div>
+            <p class="breathing-instruction">Breathe in...</p>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Emergency Contacts</h4>
+                <p>National Crisis Line: 988</p>
+                <p>Emergency: 911</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h3>Meet Our Team</h3>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="images/team/JP.jpg" alt="JP">
+                    <h4>JP</h4>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/amina.jpg" alt="Amina">
+                    <h4>Amina</h4>
+                    <p>AI Specialist</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/anni-atarah.jpg" alt="Anni Atarah">
+                    <h4>Anni Atarah</h4>
+                    <p>UX Designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/hamza.jpg" alt="Hamza">
+                    <h4>Hamza</h4>
+                    <p>Backend Engineer</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/nguyen-hoang.jpg" alt="Nguyen Hoang">
+                    <h4>Nguyen Hoang</h4>
+                    <p>ML Engineer</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Aslan AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
