@@ -23,7 +23,7 @@ Aslan AI is a compassionate AI-driven platform designed to provide emotional sup
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/aslan-ai.git
+git clone https://github.com/ujpm/aslan-ai.git
 ```
 
 2. Open `index.html` in your browser to start using the application.
