@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Auth Modal -->
+    <div class="modal auth-modal" id="authModal">
+        <div class="modal-content">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-forms">
+                <form id="loginForm" class="auth-form active">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <form id="registerForm" class="auth-form">
+                    <input type="text" name="employeeId" placeholder="Employee ID" required>
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="date" name="birthday" placeholder="Birthday" required>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -25,8 +50,8 @@
                     <span>Progress</span>
                 </li>
                 <li>
-                    <i class="fas fa-book"></i>
-                    <span>Journal</span>
+                    <i class="fas fa-trophy"></i>
+                    <span>Rewards</span>
                 </li>
                 <li>
                     <i class="fas fa-cog"></i>
@@ -47,7 +72,37 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Mental Health Support</h1>
+                    <div class="header-controls">
+                        <div class="token-usage">
+                            <div class="token-progress">
+                                <div class="token-bar" style="width: 60%;"></div>
+                            </div>
+                            <span class="token-text">600/1000 tokens</span>
+                        </div>
+                        <div class="notifications">
+                            <button class="notification-btn">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-badge">2</span>
+                            </button>
+                        </div>
+                        <div class="user-profile">
+                            <span class="user-name">Welcome, User</span>
+                            <button class="profile-btn">
+                                <i class="fas fa-user-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
             <div class="chat-container">
+                <div class="session-info">
+                    <span class="session-time">Session Duration: 00:00:00</span>
+                    <span class="session-tokens">Session Tokens: 0</span>
+                </div>
                 <div class="chat-messages" id="chatMessages">
                     <!-- Messages will be dynamically added here -->
                 </div>
@@ -81,7 +136,7 @@
                     
                     <div class="input-container">
                         <div class="input-wrapper">
-                            <textarea id="messageInput" placeholder="Type your message here..." rows="1"></textarea>
+                            <textarea id="messageInput" placeholder="Type your message here..." rows="5"></textarea>
                             <div class="input-actions">
                                 <button class="action-btn" title="Add attachment">
                                     <i class="fas fa-paperclip"></i>
@@ -103,36 +158,39 @@
         </main>
 
         <!-- Support Tools Panel -->
-        <aside class="support-tools">
-            <div class="tools-header">
-                <h3>Support Tools</h3>
-                <button class="close-tools">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="tools-content">
-                <button class="tool-btn">
-                    <i class="fas fa-lungs"></i>
-                    <span>Breathing Exercise</span>
-                </button>
-                <button class="tool-btn">
-                    <i class="fas fa-brain"></i>
-                    <span>Mindfulness</span>
-                </button>
-                <button class="tool-btn">
-                    <i class="fas fa-book-open"></i>
-                    <span>Coping Strategies</span>
-                </button>
-                <button class="tool-btn">
-                    <i class="fas fa-hands-helping"></i>
-                    <span>Crisis Resources</span>
-                </button>
-                <button class="tool-btn">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Daily Goals</span>
-                </button>
-            </div>
-        </aside>
+        <div class="support-tools-wrapper">
+            <button class="support-tools-toggle">
+                <i class="fas fa-tools"></i>
+                <span>Support Tools</span>
+            </button>
+            <aside class="support-tools">
+                <div class="tools-header">
+                    <h3>Support Tools</h3>
+                </div>
+                <div class="tools-content">
+                    <button class="tool-btn">
+                        <i class="fas fa-lungs"></i>
+                        <span>Breathing Exercise</span>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-brain"></i>
+                        <span>Mindfulness</span>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-book-open"></i>
+                        <span>Coping Strategies</span>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Crisis Resources</span>
+                    </button>
+                    <button class="tool-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Daily Goals</span>
+                    </button>
+                </div>
+            </aside>
+        </div>
     </div>
 
     <!-- Modals -->
@@ -147,61 +205,96 @@
 
     <!-- Footer -->
     <footer class="app-footer">
+        <div class="team-section">
+            <h3>Meet Our Team</h3>
+            <div class="team-carousel">
+                <button class="carousel-control prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="images/team/JP.jpg" alt="JP">
+                        <h4>JP</h4>
+                        <p>Lead Developer</p>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/amina.jpg" alt="Amina">
+                        <h4>Amina</h4>
+                        <p>AI Specialist</p>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/anni-atarah.jpg" alt="Anni Atarah">
+                        <h4>Anni Atarah</h4>
+                        <p>UX Designer</p>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/hamza.jpg" alt="Hamza">
+                        <h4>Hamza</h4>
+                        <p>Backend Engineer</p>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/nguyen-hoang.jpg" alt="Nguyen Hoang">
+                        <h4>Nguyen Hoang</h4>
+                        <p>ML Engineer</p>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots"></div>
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+
         <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Aslan AI is a proud participant in the Lōkahi Healthcare Accelerator Hackathon, dedicated to revolutionizing mental health support through AI-driven solutions. Our mission aligns with Lōkahi's vision of harmony and unity in healthcare.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="footer-section links">
+                <h4>Quick Links</h4>
+                <nav>
+                    <a href="#">About Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
             <div class="footer-section">
                 <h4>Emergency Contacts</h4>
                 <p>National Crisis Line: 988</p>
                 <p>Emergency: 911</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
                 <div class="social-links">
                     <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
         
-        <div class="team-section">
-            <h3>Meet Our Team</h3>
-            <div class="team-members">
-                <div class="team-member">
-                    <img src="images/team/JP.jpg" alt="JP">
-                    <h4>JP</h4>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team/amina.jpg" alt="Amina">
-                    <h4>Amina</h4>
-                    <p>AI Specialist</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team/anni-atarah.jpg" alt="Anni Atarah">
-                    <h4>Anni Atarah</h4>
-                    <p>UX Designer</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team/hamza.jpg" alt="Hamza">
-                    <h4>Hamza</h4>
-                    <p>Backend Engineer</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team/nguyen-hoang.jpg" alt="Nguyen Hoang">
-                    <h4>Nguyen Hoang</h4>
-                    <p>ML Engineer</p>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2024 Aslan AI. All rights reserved.</p>
+            <p>&copy; 2024 Aslan AI - A Lōkahi Healthcare Initiative. All rights reserved.</p>
         </div>
     </footer>
 
